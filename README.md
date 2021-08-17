@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/jenkins96/perfectphoto">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="img/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">README</h3>
@@ -62,53 +62,36 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-
-* npm
-
-```sh
-npm install npm@latest -g
-```
+The only thing you need is a Web Server. Although if you want to run the entire project you will need a RDBMS as well. In my case, I used 'XAMPP' and 'phpmyadmin' as a administration tool for MySQL.  
 
 ### Installation
+Assuming you are using 'XAMPP' as Web Server
 
-1. Get a free API Key at [https://example.com](https://example.com)
-
-2. Clone the repo
+1. Clone the repo
 
 ```sh
 git clone https://github.com/your_username_/Project-Name.git
 ```
-
-3. Install NPM packages
+2. Save the file in:
 
 ```sh
-npm install
+xampp/htdocs
+```
+3. Start the server and type in your browser:
+
+```sh
+localhost/perfectphoto
 ```
 
-4. Enter your API in `config.js`
-
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+A couple of screenshots:
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-## Contributing
-
+![Home View](/img/homeSS.png "Home View")
+![About View](/img/aboutSS.png "About View")
 
 
-### Creating A Pull Request
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## Authors
 

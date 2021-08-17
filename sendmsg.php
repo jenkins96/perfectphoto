@@ -1,11 +1,10 @@
-
 <?php
-use vendor\phpmailer\phpmailer\src\PHPMailer;
-use vendor\phpmailer\phpmailer\src\SMTP;
-use vendor\phpmailer\phpmailer\src\Exception;
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-//Load Composer's autoloader
-require 'vendor/autoload.php';
 //Open a new connection to the MySQL server
 $mysqli = new mysqli('localhost', 'root', '', 'perfectphoto');
 
@@ -18,8 +17,13 @@ $fname = mysqli_real_escape_string($mysqli, $_POST['fname']);
 $email = mysqli_real_escape_string($mysqli, $_POST['email']);
 $message= mysqli_real_escape_string($mysqli, $_POST['message']);
 
-$email2 = "adrianjnkns@gmail.com";
-$subject = "Sample Message";
+$email2 = '';
+$subject = 'Sample Subject';
+
+
+//Load Composer's autoloader
+require 'vendor/autoload.php';
+//Create an instance; passing `true` enables exceptions
 
 if (strlen($fname) > 50) {
     echo 'fname_long';
@@ -43,42 +47,41 @@ if (strlen($fname) > 50) {
     echo 'message_short';
 
 } else {
-	
-	 //MAILER
-     //require 'phpmailer/PHPMailerAutoload.php';
-   
+$mail = new PHPMailer(true);
 
-    //$mail = new PHPMailer;
-	
-	//$mail->SMTPDebug = 3;                               // Enable verbose debug output
-  $mail = new PHPMailer(true);
+try {
+    //Server settings
+    $mail->SMTPDebug = 1;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   ='';                     //SMTP username
+    $mail->Password   = '';                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; //nable implicit TLS encryption
+    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-    $mail->isSMTP();                                      // Set mailer to use SMTP
-    $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-    $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = 'adrianjnkns@gmail.com';                 // SMTP username
-    $mail->Password = 'holaamigos96';                           // SMTP password
-    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-    $mail->Port = 587;                                    // TCP port to connect to
+    //Recipients
+    $mail->setFrom($email2);
+    $mail->addAddress($email,$fname);     //Add a recipient
+    #$mail->addAddress('ellen@example.com');               //Name is optional
+    #$mail->addReplyTo('info@example.com', 'Information');
+    #$mail->addCC('cc@example.com');
+    #$mail->addBCC('bcc@example.com');
 
-	$mail->AddReplyTo($email);
-    $mail->From = $email2;
-    $mail->FromName = $fname;
-    $mail->addAddress('adrianjnkns@gmail.com', 'Admin');     // Add a recipient
+    //Attachments
+    #$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+    #$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
-    $mail->isHTML(true);                                  // Set email format to HTML
-
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = $subject;
-    $mail->Body = $message;
+    $mail->Body    = $message;
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-    if (!$mail->send()) {
-        echo 'Message could not be sent.';
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
-    } else {
-        echo 'true';
-    }
-
-
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
 }
 ?>

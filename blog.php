@@ -100,10 +100,10 @@ if(isset($_SESSION['login'])){
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Photo #1</h4>
+                        <h4 class="modal-title">Joseph Barrientos</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Sample Text</p>
+                    <a href="https://unsplash.com/@jbcreate_" target="_blank">Unsplash Profile</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -117,10 +117,10 @@ if(isset($_SESSION['login'])){
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Photo #2</h4>
+                        <h4 class="modal-title">Natalie Herregods</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Sample Text</p>
+                        <a href="https://unsplash.com/@theherregods_loppa" target="_blank">Unsplash Profile</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -134,10 +134,10 @@ if(isset($_SESSION['login'])){
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Photo #3</h4>
+                        <h4 class="modal-title">Yaroslav Lutsky</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Sample Text</p>
+                    <a href="https://unsplash.com/@yarik1989" target="_blank">Unsplash Profile</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
