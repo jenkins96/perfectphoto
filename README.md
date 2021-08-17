@@ -30,15 +30,13 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
-* [Contributing](#contributing)
 * [Authors](#authors)
 * [Acknowledgements](#acknowledgements)
 
 ## About The Project
 
-![Screen Shot](images/screenshot.png)
-
-Write about the project
+This is a fake website for a fake company: "The Perfect Photo". It has a home, about, blog and contact page.  
+The blog is only available for members, so you will have to sign up and log in.
 
 ## Built With
 
@@ -70,7 +68,7 @@ Assuming you are using 'XAMPP' as Web Server
 1. Clone the repo
 
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/jenkins96/perfectphoto.git
 ```
 2. Save the file in:
 
@@ -83,15 +81,13 @@ xampp/htdocs
 localhost/perfectphoto
 ```
 
-
 ## Usage
 
 A couple of screenshots:
 
-![Home View](/img/homeSS.png "Home View")
+![Home View](/img/homeSS.png "Home View")  
+  
 ![About View](/img/aboutSS.png "About View")
-
-
 
 ## Authors
 
